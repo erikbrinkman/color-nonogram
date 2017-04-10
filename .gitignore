@@ -1,0 +1,10 @@
+# Vim #
+#######
+.*.un~
+.*.swp
+
+# Node #
+########
+/node_modules
+/docs
+/coverage
