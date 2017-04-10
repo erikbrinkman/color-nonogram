@@ -11,6 +11,10 @@
   "bin": {"nonogram": "nonogram.js"},
   "author": "Erik Brinkman <erik.brinkman@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikbrinkman/color-nonogram.git"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "istanbul": "^0.4.5",
