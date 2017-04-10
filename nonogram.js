@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const colors = require('colors');
 const nonogram = require('.');
 const fs = require('fs');
