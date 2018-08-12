@@ -176,17 +176,27 @@ describe('#solve()', () => {
 
     it('fails on duplicate characters', () => {
         (() => nonogram.solve(['1@1@'].map(nonogram.parseConstraint),
-                              ['2@'].map(nonogram.parseConstraint))).should.throw(Error);
+                              ['2@'].map(nonogram.parseConstraint))).should.throw(/constraints can't have consecutive duplicate characters/);
+    });
+
+    it('recognizes invalid row counts', () => {
+        (() => nonogram.solve(['2@', ''].map(nonogram.parseConstraint),
+                              ['2@'].map(nonogram.parseConstraint))).should.throw(/row 1 had more characters than the number of columns/);
+    });
+
+    it('recognizes invalid column counts', () => {
+        (() => nonogram.solve(['2@'].map(nonogram.parseConstraint),
+                              ['2@', ''].map(nonogram.parseConstraint))).should.throw(/column 1 had more characters than the number of rows/);
     });
 
     it('recognizes invalid counts', () => {
-        (() => nonogram.solve(['1@'].map(nonogram.parseConstraint),
-                              ['2@'].map(nonogram.parseConstraint))).should.throw(Error);
+        (() => nonogram.solve(['1@', ''].map(nonogram.parseConstraint),
+                              ['2@'].map(nonogram.parseConstraint))).should.throw(/rows and columns had different counts of characters/);
     });
 
     it('fails to solve impossible nonograms', () => {
         (() => nonogram.solve(['1', '2', '1'].map(nonogram.parseConstraint),
-                              ['1', '', '3'].map(nonogram.parseConstraint))).should.throw(Error);
+                              ['1', '', '3'].map(nonogram.parseConstraint))).should.throw(/no solutions found/);
     });
 });
 

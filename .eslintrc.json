@@ -1,0 +1,11 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "no-param-reassign": "off",
+    "no-return-assign": "off",
+    "no-else-return": "off"
+  }
+}

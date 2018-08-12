@@ -4,11 +4,14 @@
   "description": "A javascript nonogram solver",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "lint": "eslint index.js nonogram.js",
+    "test": "npm run lint && mocha",
     "coverage": "istanbul cover _mocha",
     "docs": "jsdoc index.js -d docs"
   },
-  "bin": {"nonogram": "nonogram.js"},
+  "bin": {
+    "nonogram": "nonogram.js"
+  },
   "author": "Erik Brinkman <erik.brinkman@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -17,9 +20,12 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
     "istanbul": "^0.4.5",
     "jsdoc": "^3.4.3",
-    "mocha": "^3.2.0"
+    "mocha": "^5.2.0"
   },
   "dependencies": {
     "colors": "^1.1.2",
